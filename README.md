@@ -1,7 +1,8 @@
+<a href="https://github.com/jkulba/Orange/">
+    <img alt="The Orange Service" src="https://github.com/jkulba/Orange/blob/main/orange.svg"
+    width="150" height="175">
+</a>
 
-<p align="center">
-	<img src="orange.svg" alt="Orange Logo" width="120" />
-</p>
+# The Orange Service
 
-# Orange
 .NET 10 Clean Architecture Demo Site
