@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 
 # Set default port if not provided
 PORT=${PORT:-5001}
