@@ -1,9 +1,10 @@
 ---
 name: Documentation Update
 about: Suggest improvements or report issues with project documentation
-title: '[DOCS] '
-labels: ['documentation']
+title: "[DOCS] "
+labels: documentation
 assignees: ''
+
 ---
 
 ## Documentation Issue

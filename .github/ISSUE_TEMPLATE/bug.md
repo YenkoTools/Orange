@@ -1,9 +1,10 @@
 ---
 name: Bug Report
 about: Report a bug or unexpected behavior in the application
-title: '[BUG] '
-labels: ['bug']
+title: "[BUG] "
+labels: bug, enhancement
 assignees: ''
+
 ---
 
 ## Bug Description
