@@ -3,13 +3,13 @@
 Execute the following commands to generate a comprehensive security audit report for both Client and Service projects:
 
 ## Client Project (npm/Node.js)
-1. Run `npm audit` in `Aem/Client` to scan for security vulnerabilities
-2. Run `npm outdated` in `Aem/Client` to check for outdated packages
+1. Run `npm audit` in `Orange/Client` to scan for security vulnerabilities
+2. Run `npm outdated` in `Orange/Client` to check for outdated packages
 
 ## Service Project (.NET)
-1. Run `dotnet list package --vulnerable` in `Aem/Service` to check for vulnerable NuGet packages
-2. Run `dotnet list package --outdated` in `Aem/Service` to check for outdated NuGet packages
-3. Run `dotnet list package --deprecated` in `Aem/Service` to check for deprecated NuGet packages
+1. Run `dotnet list package --vulnerable` in `Orange/Service` to check for vulnerable NuGet packages
+2. Run `dotnet list package --outdated` in `Orange/Service` to check for outdated NuGet packages
+3. Run `dotnet list package --deprecated` in `Orange/Service` to check for deprecated NuGet packages
 
 ## Report Generation
 Generate a markdown report at `security-audit-report.md` with the following structure:

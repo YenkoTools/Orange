@@ -5,11 +5,12 @@ Please help me commit and push my changes following our project's conventions.
 **GitHub Issue Number:** [Enter your GitHub Issue number, e.g., 55]
 
 **Instructions:**
-1. Run `dotnet format` to format all code files in src/ and tests/ directories according to .editorconfig rules
-2. Add any files changed by the formatter to the changeset
-3. Review the staged changes in my workspace
-4. Collect statistics using `git diff --cached --shortstat` and `git diff --cached --stat`
-5. Generate a comprehensive commit message that:
+1. Run `dotnet format` to format all code files in Service/src/ and Service/tests/ directories according to .editorconfig rules
+2. Run `npm run format` in the `Client/` directory to format all AstroJS client code files
+3. Add any files changed by the formatter to the changeset
+4. Review the staged changes in my workspace
+5. Collect statistics using `git diff --cached --shortstat` and `git diff --cached --stat`
+6. Generate a comprehensive commit message that:
    - **Header**: Follows the format: `ISSUE#[ISSUE-NUMBER]: [summary]`
    - **Body**: Includes detailed information:
      - `Closes #[ISSUE-NUMBER]` to link and close the GitHub Issue on merge
@@ -19,10 +20,10 @@ Please help me commit and push my changes following our project's conventions.
    - Keeps header under 72 characters
    - Uses present tense (e.g., "Add feature" not "Added feature")
    - Is clear and descriptive
-6. Update the CHANGELOG.md file in the project root:
+7. Update the CHANGELOG.md file in the project root:
    - Add entry under the `## [Unreleased]` section
    - Format: `- [YYYY-MM-DD] ISSUE#[ISSUE-NUMBER]: [summary]`
-7. Show me:
+8. Show me:
    - The proposed commit message (with header and body)
    - The CHANGELOG.md entry to add
    - The git commands to execute
@@ -67,11 +68,12 @@ Impact:
 - For small, trivial changes, body is optional
 
 **After I approve, execute these steps:**
-1. `dotnet format`
-2. `git add .`
-3. Update CHANGELOG.md
-4. `git add CHANGELOG.md`
-5. `git commit -m "ISSUE#[number]: [summary]" -m "Closes #[number]" -m "[body with statistics and details]"`
-6. `git push`
+1. `cd Service/src && dotnet format && cd ../tests && dotnet format && cd ../..`
+2. `cd Client && npm run format && cd ..`
+3. `git add .`
+4. Update CHANGELOG.md
+5. `git add CHANGELOG.md`
+6. `git commit -m "ISSUE#[number]: [summary]" -m "Closes #[number]" -m "[body with statistics and details]"`
+7. `git push`
 
 **Note:** For multi-line commit messages, use multiple `-m` flags or prepare message in a file.
