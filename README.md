@@ -3,42 +3,94 @@
     width="150" height="175">
 </a>
 
-# The Orange Service
+# The Orange Service — .NET Clean Architecture Template
 
-A demonstration project showcasing Clean Architecture principles in .NET 10.
+[![CI](https://github.com/jkulba/Orange/actions/workflows/ci.yml/badge.svg)](https://github.com/jkulba/Orange/actions/workflows/ci.yml)
+
+A GitHub repository template for building .NET 10 services following Clean Architecture principles.
+
+## Using This Template
+
+Click the **"Use this template"** button at the top of the repository page to create a new repository pre-configured with this structure. Then:
+
+1. **Rename** the solution, projects, and namespaces from `Orange` to your service name.
+2. **Update** `README.md`, `CHANGELOG.md`, and `.github/CODEOWNERS` with your project details.
+3. **Replace** the placeholder `Class1.cs` files in each layer with your domain logic.
+4. **Configure** `appsettings.json` and `launchSettings.json` for your environment.
 
 ## Overview
 
-This project implements Clean Architecture with a clear separation of concerns across four layers:
-- **Domain** - Core business logic and entities
-- **Application** - Use cases and business rules
-- **Infrastructure** - External concerns (database, external services)
-- **Api** - Presentation layer (REST API)
+This template implements Clean Architecture with a clear separation of concerns across four layers:
+
+| Layer | Project | Responsibility |
+|-------|---------|----------------|
+| **Domain** | `src/Domain` | Core business entities, value objects, and interfaces |
+| **Application** | `src/Application` | Use cases, CQRS commands/queries, and business rules |
+| **Infrastructure** | `src/Infrastructure` | Database, external services, and repository implementations |
+| **Api** | `src/Api` | Minimal API presentation layer |
+
+Each layer has a corresponding test project under `tests/`.
 
 ## Getting Started
 
+### Prerequisites
+
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0)
+
+### Run the Application
+
 ```bash
-# Run the application
+# Run the API
 ./run.sh
+```
+
+### Build and Test
+
+```bash
+dotnet build
+dotnet test
+```
+
+## Project Structure
+
+```
+.
+├── src/
+│   ├── Api/            # Minimal API host and endpoint definitions
+│   ├── Application/    # CQRS handlers, commands, queries, and DTOs
+│   ├── Domain/         # Entities, value objects, domain interfaces
+│   └── Infrastructure/ # Repository implementations, external integrations
+├── tests/
+│   ├── Api.Tests/
+│   ├── Application.Tests/
+│   ├── Domain.Tests/
+│   └── Infrastructure.Tests/
+├── .github/
+│   ├── workflows/      # CI/CD GitHub Actions workflows
+│   ├── ISSUE_TEMPLATE/ # Bug, feature, and documentation issue templates
+│   ├── CODEOWNERS      # Code ownership rules
+│   └── PULL_REQUEST_TEMPLATE.md
+├── Directory.Build.props   # Shared MSBuild properties
+├── Directory.Packages.props # Central NuGet package versions
+├── Orange.slnx             # Solution file
+└── global.json             # .NET SDK version pin
 ```
 
 ## Documentation
 
-For comprehensive documentation including:
-- Detailed architecture decisions
-- Development guidelines
-- API documentation
-- Contributing guidelines
-- Deployment instructions
+For comprehensive documentation including architecture decisions, development guidelines, API documentation, and deployment instructions, please visit the [**project wiki**](../../wiki).
 
-Please visit the [**project wiki**](../../wiki).
+## Contributing
 
-## Quick Links
+Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting a pull request.
 
-- [Architecture Overview](../../wiki) - Understanding the project structure
-- [Getting Started Guide](../../wiki) - Setup and development workflow
-- [API Reference](../../wiki) - Endpoint documentation
-- [Contributing](../../wiki) - How to contribute to the project
+## Code of Conduct
+
+This project follows the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md).
+
+## Security
+
+Please review our [Security Policy](SECURITY.md) for reporting vulnerabilities responsibly.
 
 ## License
 
