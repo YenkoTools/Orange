@@ -1,10 +1,11 @@
 using System.Text.Json;
 using System.Text.RegularExpressions;
 
-using Serilog;
-
 using Application;
+
 using Infrastructure;
+
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 

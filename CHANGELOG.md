@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- [2026-02-21] ISSUE#7: Add GitHub Copilot workflow prompts and apply code formatting
+
 ### Added
 - Initial project scaffold using Clean Architecture
 - Domain, Application, Infrastructure, and API layers
