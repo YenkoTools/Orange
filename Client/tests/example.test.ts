@@ -1,12 +1,12 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect } from "vitest";
 
-describe('Orange Client', () => {
-  it('should have correct API base URL format', () => {
-    const validUrl = 'http://localhost:5000';
+describe("Orange Client", () => {
+  it("should have correct API base URL format", () => {
+    const validUrl = "http://localhost:5000";
     expect(validUrl).toMatch(/^https?:\/\/.+/);
   });
 
-  it('should format paginated response correctly', () => {
+  it("should format paginated response correctly", () => {
     interface PaginatedResponse<T> {
       data: T[];
       total: number;
@@ -16,7 +16,7 @@ describe('Orange Client', () => {
     }
 
     const response: PaginatedResponse<string> = {
-      data: ['item1', 'item2'],
+      data: ["item1", "item2"],
       total: 2,
       page: 1,
       pageSize: 10,
@@ -30,7 +30,7 @@ describe('Orange Client', () => {
     expect(response.totalPages).toBe(1);
   });
 
-  it('should calculate total pages correctly', () => {
+  it("should calculate total pages correctly", () => {
     const calculateTotalPages = (total: number, pageSize: number): number =>
       Math.ceil(total / pageSize);
 
