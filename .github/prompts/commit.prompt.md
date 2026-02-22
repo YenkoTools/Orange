@@ -5,7 +5,7 @@ Please help me commit and push my changes following our project's conventions.
 **GitHub Issue Number:** [Enter your GitHub Issue number, e.g., 55]
 
 **Instructions:**
-1. Run `dotnet format` to format all code files in src/ and tests/ directories according to .editorconfig rules
+1. Run `dotnet format` to format all code files in Service/src/ and Service/tests/ directories according to .editorconfig rules
 2. Run `npm run format` in the `Client/` directory to format all AstroJS client code files
 3. Add any files changed by the formatter to the changeset
 4. Review the staged changes in my workspace
@@ -68,7 +68,7 @@ Impact:
 - For small, trivial changes, body is optional
 
 **After I approve, execute these steps:**
-1. `dotnet format`
+1. `cd Service/src && dotnet format && cd ../tests && dotnet format && cd ../..`
 2. `cd Client && npm run format && cd ..`
 3. `git add .`
 4. Update CHANGELOG.md
