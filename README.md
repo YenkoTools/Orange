@@ -24,10 +24,10 @@ This template implements Clean Architecture with a clear separation of concerns 
 
 | Layer | Project | Responsibility |
 |-------|---------|----------------|
-| **Domain** | `src/Domain` | Core business entities, value objects, and interfaces |
-| **Application** | `src/Application` | Use cases, CQRS commands/queries, and business rules |
-| **Infrastructure** | `src/Infrastructure` | Database, external services, and repository implementations |
-| **Api** | `src/Api` | Minimal API presentation layer |
+| **Domain** | `Service/src/Domain` | Core business entities, value objects, and interfaces |
+| **Application** | `Service/src/Application` | Use cases, CQRS commands/queries, and business rules |
+| **Infrastructure** | `Service/src/Infrastructure` | Database, external services, and repository implementations |
+| **Api** | `Service/src/Api` | Minimal API presentation layer |
 
 Each layer has a corresponding test project under `tests/`.
 
@@ -55,16 +55,18 @@ dotnet test
 
 ```
 .
-├── src/
-│   ├── Api/            # Minimal API host and endpoint definitions
-│   ├── Application/    # CQRS handlers, commands, queries, and DTOs
-│   ├── Domain/         # Entities, value objects, domain interfaces
-│   └── Infrastructure/ # Repository implementations, external integrations
-├── tests/
-│   ├── Api.Tests/
-│   ├── Application.Tests/
-│   ├── Domain.Tests/
-│   └── Infrastructure.Tests/
+├── Service/
+│   ├── src/
+│   │   ├── Api/            # Minimal API host and endpoint definitions
+│   │   ├── Application/    # CQRS handlers, commands, queries, and DTOs
+│   │   ├── Domain/         # Entities, value objects, domain interfaces
+│   │   └── Infrastructure/ # Repository implementations, external integrations
+│   └── tests/
+│       ├── Api.Tests/
+│       ├── Application.Tests/
+│       ├── Domain.Tests/
+│       └── Infrastructure.Tests/
+├── Client/
 ├── .github/
 │   ├── workflows/      # CI/CD GitHub Actions workflows
 │   ├── ISSUE_TEMPLATE/ # Bug, feature, and documentation issue templates
