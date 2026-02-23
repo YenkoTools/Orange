@@ -31,24 +31,58 @@ This template implements Clean Architecture with a clear separation of concerns 
 
 Each layer has a corresponding test project under `tests/`.
 
+The repository also includes a **Client** application — a TypeScript-based frontend built with [Astro](https://astro.build/), [Tailwind CSS](https://tailwindcss.com/), and [AG Grid](https://www.ag-grid.com/). It consumes the Orange Service API and provides a web UI for browsing and displaying data.
+
 ## Getting Started
 
 ### Prerequisites
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0)
+- [Node.js 22+](https://nodejs.org/) and [npm](https://www.npmjs.com/) (for the Client)
 
-### Run the Application
+### Run the Service (API)
 
 ```bash
-# Run the API
+# Run the API (defaults to port 5001)
 ./run.sh
+
+# Or specify a custom port
+PORT=5000 ./run.sh
+```
+
+### Run the Client
+
+```bash
+cd Client
+
+# Install dependencies (first time only)
+npm install
+
+# Copy the environment file and configure the API base URL
+cp .env.example .env
+
+# Start the development server (http://localhost:4321 by default)
+npm run dev
+```
+
+To build the Client for production:
+
+```bash
+cd Client
+npm run build
+npm run preview
 ```
 
 ### Build and Test
 
 ```bash
+# Build and test the Service
 dotnet build
 dotnet test
+
+# Run Client tests
+cd Client
+npm test
 ```
 
 ## Project Structure
@@ -67,6 +101,16 @@ dotnet test
 │       ├── Domain.Tests/
 │       └── Infrastructure.Tests/
 ├── Client/
+│   ├── src/
+│   │   ├── components/     # Shared Astro components (Header, Footer, Sidebar)
+│   │   ├── layouts/        # Page layout templates
+│   │   ├── pages/          # Astro file-based routes
+│   │   └── styles/         # Global CSS / Tailwind base styles
+│   ├── tests/              # Vitest unit tests
+│   ├── .env.example        # Environment variable template
+│   ├── astro.config.mjs    # Astro configuration
+│   ├── tailwind.config.mjs # Tailwind CSS configuration
+│   └── package.json
 ├── .github/
 │   ├── workflows/      # CI/CD GitHub Actions workflows
 │   ├── ISSUE_TEMPLATE/ # Bug, feature, and documentation issue templates
