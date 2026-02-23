@@ -1,0 +1,23 @@
+# ─── .NET artifacts ───────────────────────────────────────────────────────────
+**/obj/
+**/bin/
+
+# ─── Secrets / local config ───────────────────────────────────────────────────
+**/appsettings.Development.json
+**/*.user
+**/.vs/
+
+# ─── Test projects (not needed in the production image) ──────────────────────
+Service/tests/
+
+# ─── Client (built separately in its own image) ───────────────────────────────
+Client/
+
+# ─── Version control ─────────────────────────────────────────────────────────
+.git/
+.gitignore
+.gitattributes
+
+# ─── Docs / CI config ────────────────────────────────────────────────────────
+*.md
+.github/

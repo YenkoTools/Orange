@@ -52,14 +52,22 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.UseHttpsRedirection();
 }
-
-app.UseHttpsRedirection();
 
 var summaries = new[]
 {
     "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
 };
+
+// Health check endpoint used by docker-compose and load balancers
+app.MapGet("/healthz", () => Results.Ok(new { status = "healthy" }))
+   .WithName("HealthCheck")
+   .WithTags("Health")
+   .WithSummary("Health check")
+   .WithDescription("Returns HTTP 200 when the service is healthy.")
+   .Produces<object>(StatusCodes.Status200OK)
+   .ExcludeFromDescription();
 
 app.MapGet("/weatherforecast", () =>
 {

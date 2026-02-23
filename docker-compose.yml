@@ -1,0 +1,51 @@
+name: orange
+
+services:
+
+  # ─── .NET 10 API ──────────────────────────────────────────────────────────
+  service:
+    build:
+      # Context is the repo root so Directory.Build.props and
+      # Directory.Packages.props are available during the dotnet restore step.
+      context: .
+      dockerfile: Service/Dockerfile
+    container_name: orange-service
+    ports:
+      - "7001:7001"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ASPNETCORE_URLS: http://+:7001
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:7001/healthz"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+    networks:
+      - orange-network
+
+  # ─── Astro Static Client (served by nginx) ────────────────────────────────
+  client:
+    build:
+      context: ./Client
+      dockerfile: Dockerfile
+    container_name: orange-client
+    ports:
+      - "5001:5001"
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:5001/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+    depends_on:
+      service:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - orange-network
+
+networks:
+  orange-network:
+    driver: bridge
