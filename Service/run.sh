@@ -15,4 +15,4 @@ echo "Environment: $ASPNETCORE_ENVIRONMENT"
 echo ""
 
 # Change to the API project directory and run it
-dotnet run --project Service/src/Api --urls http://localhost:$PORT
+dotnet run --project src/Api --urls http://localhost:$PORT
