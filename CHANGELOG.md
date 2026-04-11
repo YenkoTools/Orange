@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- [2026-04-11] ISSUE#55: Merge main into develop, migrate Tailwind v4, and update NuGet packages
 - [2026-02-23] ISSUE#55: Reorganize Service project structure and update SDK version
 - [2026-02-21] ISSUE#9: Fix project path references and add Prettier Astro plugin
 - [2026-02-21] ISSUE#7: Add GitHub Copilot workflow prompts and apply code formatting
