@@ -1,0 +1,38 @@
+name: Build Service
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "Service/**"
+      - "Orange.slnx"
+      - "Directory.Build.props"
+      - "Directory.Packages.props"
+      - ".github/workflows/build-service.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    name: Build and test Service
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Restore dependencies
+        run: dotnet restore Orange.slnx
+
+      - name: Build
+        run: dotnet build Orange.slnx --configuration Release --no-restore
+
+      - name: Test
+        run: dotnet test Orange.slnx --configuration Release --no-build
